@@ -1,3 +1,4 @@
+package hebein.poolo.poolo3.inputpanel;
 //https://stackoverflow.com/questions/34770139/gridbag-layout-how-to-push-components-north
 import java.awt.Color;
 import java.awt.Container;
