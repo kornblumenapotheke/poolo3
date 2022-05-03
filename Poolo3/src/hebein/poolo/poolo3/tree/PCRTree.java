@@ -19,7 +19,7 @@ public class PCRTree
 	DefaultMutableTreeNode actualLine;
 	
 	
-	PCRTree ()
+	public PCRTree ()
 	{
 		myTreeRoot = new DefaultMutableTreeNode ("Untersuchung");
 	}

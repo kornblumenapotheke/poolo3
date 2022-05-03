@@ -2,6 +2,9 @@ package hebein.poolo.poolo3.proben;
 
 import java.util.ArrayList;
 import java.util.logging.Logger;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 /**
  * Hier werden sämtliche Racks angelegt
  * @author GuntherBackoffice
@@ -19,7 +22,7 @@ public class Racks {
 		
 		
 	//KONSTRUKT
-	Racks ()
+	public Racks ()
 	{
 		rackList = new ArrayList<EinzelRack>();
 		aktuellesRackNummer = 0;
@@ -29,6 +32,19 @@ public class Racks {
 	}
 		//SET
 		//GET
+	public String getHTML()
+	{
+		String htmlText ="";
+		//gibt den HTML der Linie und der darauf liegenden Proben retuour
+		for (int i=0;i<rackList.size();i++)
+		{
+			EinzelRack einzelrack = rackList.get(i);
+			htmlText = htmlText + einzelrack.getHTML();
+			
+		}
+		htmlText = "MAINRACK"+ htmlText;
+		return htmlText;
+	}
 		//SHOW 
 	public void showInfo()
 	{
@@ -54,7 +70,19 @@ public class Racks {
 	public void addProbe (String inProbenNummer)
 	{
 		//Checke Probenverzeichnis
-		aktuellesRack.addprobe (inProbenNummer);
+		EinzelProbe einzelprobe = new EinzelProbe (inProbenNummer);
+		if (probenverzeichnis.addProbe(inProbenNummer, einzelprobe)) //die Nummer existiert nich nicht
+		{
+			aktuellesRack.addprobe (einzelprobe);
+			System.out.println (getHTML());
+			
+		}
+		else
+		{
+			//Fehlermeldung dass schon existent!
+			JFrame jFrame = new JFrame();
+	        JOptionPane.showMessageDialog(jFrame, "Probe schon existent!");
+		}
 		
 	}
 

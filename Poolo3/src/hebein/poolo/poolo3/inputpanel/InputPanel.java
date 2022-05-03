@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -21,6 +22,7 @@ import javax.swing.tree.DefaultTreeModel;
 
 import hebein.poolo.poolo3.dispatcher.PooloActionListener;
 import hebein.poolo.poolo3.exporters.HTMLPrinter;
+import hebein.poolo.poolo3.proben.Racks;
 import hebein.poolo.poolo3.tree.JTreeUtil;
 import hebein.poolo.poolo3.tree.MyTreeCellRenderer;
 import hebein.poolo.poolo3.tree.PCRTree;
@@ -216,11 +218,8 @@ public class InputPanel extends JPanel
     
     
 	
-	ArrayList<Probenrack> racks = new ArrayList<Probenrack>();
-	Probenrack aktuelles_Rack = new Probenrack();
-	char actualRackNumber = 'M';
-	char actualRowNumber = 'A';
-	int actualPos = '0';
+	Racks racks = new Racks();
+	
 	public static final Logger log = Logger.getLogger(InputPanel.class.getName());
 	Container c;
 	GridBagLayout gbl;
@@ -236,8 +235,8 @@ public class InputPanel extends JPanel
 	{
 		
 		log.info("Konstruktor Inputframe Beginn");
-		actualRackNumber--;
-		actualRowNumber--;
+		//actualRackNumber--;
+		//actualRowNumber--;
 		log.info("JPanel anlegen");
 		myPCRTree = new PCRTree();
 		tree = new JTree(myPCRTree.getTreeRoot() );
@@ -301,13 +300,15 @@ public class InputPanel extends JPanel
 	{
 		log.info("Neue Probe anlegen ");
 		//checke ob diese Probe nicht schon existiert (Hash).
+		racks.addProbe(inString);
+		
 		//Probenobjekt anlegen mit allen Referenzen!
 		// if (insString not in Hash)
-		actualPos++;
+		//actualPos++;
 		textField.setText("");
 		//jLScanMonitor.newLine("&emsp;<font size='3' bgcolor='white' color='black'> "+actualPos+":"+inString+"</font>");
-		aktuelles_Rack.addProbe(inString, Character.toString(actualRowNumber), Integer.toString(actualPos));	
-		myPCRTree.addProbe(Integer.toString(actualPos)+": "+inString);
+		//aktuelles_Rack.addProbe(inString, Character.toString(actualRowNumber), Integer.toString(actualPos));	
+		//myPCRTree.addProbe(Integer.toString(actualPos)+": "+inString);
 		((DefaultTreeModel)tree.getModel()).reload();
 		JTreeUtil jTreeUtil = new JTreeUtil();
 		jTreeUtil.expandTree(tree, true);
@@ -321,14 +322,15 @@ public class InputPanel extends JPanel
 	public void newRack ()
 	{
 		log.info("Neuen rack anlegen");		
-		actualRackNumber++;
-		actualRowNumber ='A';
-		actualRowNumber--;
+		racks.addRack();
+		//actualRackNumber++;
+		//actualRowNumber ='A';
+		//actualRowNumber--;
 		//jLScanMonitor.newLine("<font size='8' bgcolor='black' color='orange'> New Rack "+actualRackNumber+"</font>");
 		textField.grabFocus();
-		Probenrack aktuelles_Rack = new Probenrack (); //daten mit Ã¼bergeben!
-		racks.add(aktuelles_Rack);
-		myPCRTree.addRack(Character.toString(actualRackNumber));
+		//Probenrack aktuelles_Rack = new Probenrack (); //daten mit Ã¼bergeben!
+		//racks.add(aktuelles_Rack);
+		//myPCRTree.addRack(Character.toString(actualRackNumber));
 		((DefaultTreeModel)tree.getModel()).reload();
 		JTreeUtil jTreeUtil = new JTreeUtil();
 		jTreeUtil.expandTree(tree, true);
@@ -342,15 +344,16 @@ public class InputPanel extends JPanel
 	 */
 	public void newRow ()
 	{
-		log.info("Neue Row anlegen");
+		log.info("Neue Row anlegen");		
+		racks.addLinie();
 		//neue Row anlegen
 		//text ausgeben
-		actualRowNumber++;
-		actualPos=0;
+		//actualRowNumber++;
+		//actualPos=0;
 		//jLScanMonitor.newLine("&ensp;<font size='5' bgcolor='black' color='green'> New ROW " + actualRowNumber + "("+(Character.getNumericValue(actualRowNumber)-9)+")"+"</font>");
 		textField.grabFocus();
-		aktuelles_Rack.addRow(Character.toString(actualRowNumber)); //Daten Ã¼bergeben
-		myPCRTree.addLine(Character.toString(actualRowNumber));
+		//aktuelles_Rack.addRow(Character.toString(actualRowNumber)); //Daten Ã¼bergeben
+		//myPCRTree.addLine(Character.toString(actualRowNumber));
 		((DefaultTreeModel)tree.getModel()).reload();
 		JTreeUtil jTreeUtil = new JTreeUtil();
 		jTreeUtil.expandTree(tree, true);
@@ -362,8 +365,11 @@ public class InputPanel extends JPanel
 	 */
 	public void save_to_file()
 	{
-		log.info("Save to file ausgelï¿½st");
-		HTMLPrinter.getInstance().save_to_file(jLScanMonitor.getText());
+		log.info("Save to file ausgelöst");
+		//HTMLPrinter.getInstance().save_to_file(jLScanMonitor.getText());
+		
+		JFrame jFrame = new JFrame();
+        JOptionPane.showMessageDialog(jFrame, "Save_to_file noch nicht verfügbar");
 	}
 	
 	
@@ -387,7 +393,9 @@ public class InputPanel extends JPanel
 	public void print() {
 		
 		log.info("Save to file und drucken ausgelï¿½st");
-		HTMLPrinter.getInstance().print(jLScanMonitor.getText());	
+		//HTMLPrinter.getInstance().print(jLScanMonitor.getText());	
+		JFrame jFrame = new JFrame();
+        JOptionPane.showMessageDialog(jFrame, "Print  noch nicht verfügbar");
 	
 	}
 
