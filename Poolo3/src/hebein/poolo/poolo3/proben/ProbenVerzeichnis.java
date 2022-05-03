@@ -3,7 +3,7 @@ package hebein.poolo.poolo3.proben;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
-public class Probenverzeichnis 
+public class ProbenVerzeichnis 
 {
 	//refs
 	
@@ -15,7 +15,7 @@ public class Probenverzeichnis
 			
 			
 			//KONSTRUKT
-	Probenverzeichnis ()
+	ProbenVerzeichnis ()
 	{
 		myProbenverzeichnis = new HashMap<String,EinzelProbe>();
 	}

@@ -6,13 +6,21 @@ public class EinzelRack
 {
 	//refs
 	Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+	int myRackNummer=-999;
 	
 	//konst
 	
 	
 	//KONSTRUKT
+	EinzelRack (int inRackNummer)
+	{
+		myRackNummer=inRackNummer;
+	}
+	
 	//SET
+	
 	//GET
+	
 	//SHOW 
 	public void showInfo()
 	{

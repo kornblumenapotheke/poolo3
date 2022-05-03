@@ -19,6 +19,12 @@ import javax.swing.JTree;
 import javax.swing.border.Border;
 import javax.swing.tree.DefaultTreeModel;
 
+import hebein.poolo.poolo3.dispatcher.PooloActionListener;
+import hebein.poolo.poolo3.exporters.HTMLPrinter;
+import hebein.poolo.poolo3.tree.JTreeUtil;
+import hebein.poolo.poolo3.tree.MyTreeCellRenderer;
+import hebein.poolo.poolo3.tree.PCRTree;
+
 public class InputPanel extends JPanel
 {
 	
@@ -221,7 +227,7 @@ public class InputPanel extends JPanel
 	
 	JPanel jPanel ;	
 	JTextField textField = new JTextField ("");
-	JLabelExtended jLScanMonitor = new JLabelExtended(); // wird verwendet für das HTML, kann durch einen String ersetzt werden !
+	//JLabelExtended jLScanMonitor = new JLabelExtended(); // wird verwendet für das HTML, kann durch einen String ersetzt werden !
 	//JPanelExtendedNew jLScanMonitorNew = new JPanelExtendedNew (); 
 
 
@@ -299,7 +305,7 @@ public class InputPanel extends JPanel
 		// if (insString not in Hash)
 		actualPos++;
 		textField.setText("");
-		jLScanMonitor.newLine("&emsp;<font size='3' bgcolor='white' color='black'> "+actualPos+":"+inString+"</font>");
+		//jLScanMonitor.newLine("&emsp;<font size='3' bgcolor='white' color='black'> "+actualPos+":"+inString+"</font>");
 		aktuelles_Rack.addProbe(inString, Character.toString(actualRowNumber), Integer.toString(actualPos));	
 		myPCRTree.addProbe(Integer.toString(actualPos)+": "+inString);
 		((DefaultTreeModel)tree.getModel()).reload();
@@ -318,7 +324,7 @@ public class InputPanel extends JPanel
 		actualRackNumber++;
 		actualRowNumber ='A';
 		actualRowNumber--;
-		jLScanMonitor.newLine("<font size='8' bgcolor='black' color='orange'> New Rack "+actualRackNumber+"</font>");
+		//jLScanMonitor.newLine("<font size='8' bgcolor='black' color='orange'> New Rack "+actualRackNumber+"</font>");
 		textField.grabFocus();
 		Probenrack aktuelles_Rack = new Probenrack (); //daten mit übergeben!
 		racks.add(aktuelles_Rack);
@@ -341,7 +347,7 @@ public class InputPanel extends JPanel
 		//text ausgeben
 		actualRowNumber++;
 		actualPos=0;
-		jLScanMonitor.newLine("&ensp;<font size='5' bgcolor='black' color='green'> New ROW " + actualRowNumber + "("+(Character.getNumericValue(actualRowNumber)-9)+")"+"</font>");
+		//jLScanMonitor.newLine("&ensp;<font size='5' bgcolor='black' color='green'> New ROW " + actualRowNumber + "("+(Character.getNumericValue(actualRowNumber)-9)+")"+"</font>");
 		textField.grabFocus();
 		aktuelles_Rack.addRow(Character.toString(actualRowNumber)); //Daten übergeben
 		myPCRTree.addLine(Character.toString(actualRowNumber));
