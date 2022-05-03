@@ -1,5 +1,7 @@
 package hebein.poolo.poolo3.proben;
 
+import java.util.logging.Logger;
+
 import hebein.poolo.poolo3.dispatcher.DispatcherService;
 
 public class EinzelProbe 
@@ -11,6 +13,8 @@ public class EinzelProbe
 	boolean isValid = false;
 	ProbenStatus myStatus = new ProbenStatus();
 	DispatcherService myDispatcher;
+	Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
 	
 	EinzelProbe(String inProbenID)
 	{
@@ -60,9 +64,10 @@ public class EinzelProbe
 	/**
 	 * macht einen Dialog mit den Details der Probe auf.
 	 */
-	public void showProbenDetails ()
+	public void showInfo()
 	{
-		
+		//Zeigt mit einem JDialog Infos zur Linie her.
 	}
+	
 
 }
