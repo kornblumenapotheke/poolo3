@@ -69,10 +69,10 @@ int aktuelleposition = -999;
 		for (int i=0;i<proben.size();i++)
 		{
 			EinzelProbe einzelprobe = proben.get(i);
-			htmlText = htmlText + "PROBE NR. " + einzelprobe.getHTML();
+			htmlText = htmlText + einzelprobe.getHTML();
 			
 		}
-		htmlText = "LINIE NUMMER: "+getLinienNummer() + "(PROBENANZAHL:" + proben.size()+")" + htmlText;
+		htmlText = "<tr><td></td><td>"+"LINIE: "+getLinienNummer()+"</td><td></td><td></td><td></td><td></td></tr>" + htmlText;
 		return htmlText;
 	}
 	

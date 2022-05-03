@@ -241,6 +241,7 @@ public class InputPanel extends JPanel
 		myPCRTree = new PCRTree();
 		tree = new JTree(myPCRTree.getTreeRoot() );
 		myPCRTree.setTree(tree);
+		racks.setTree (myPCRTree);
 		tree.setCellRenderer(new MyTreeCellRenderer());
 		
 		
@@ -300,7 +301,9 @@ public class InputPanel extends JPanel
 	{
 		log.info("Neue Probe anlegen ");
 		//checke ob diese Probe nicht schon existiert (Hash).
+		
 		racks.addProbe(inString);
+		
 		
 		//Probenobjekt anlegen mit allen Referenzen!
 		// if (insString not in Hash)
@@ -308,7 +311,7 @@ public class InputPanel extends JPanel
 		textField.setText("");
 		//jLScanMonitor.newLine("&emsp;<font size='3' bgcolor='white' color='black'> "+actualPos+":"+inString+"</font>");
 		//aktuelles_Rack.addProbe(inString, Character.toString(actualRowNumber), Integer.toString(actualPos));	
-		//myPCRTree.addProbe(Integer.toString(actualPos)+": "+inString);
+		//PCRTree.addProbe(Integer.toString(1)+": "+inString);
 		((DefaultTreeModel)tree.getModel()).reload();
 		JTreeUtil jTreeUtil = new JTreeUtil();
 		jTreeUtil.expandTree(tree, true);
@@ -365,11 +368,11 @@ public class InputPanel extends JPanel
 	 */
 	public void save_to_file()
 	{
-		log.info("Save to file ausgelöst");
+		log.info("Save to file ausgelï¿½st");
 		//HTMLPrinter.getInstance().save_to_file(jLScanMonitor.getText());
 		
 		JFrame jFrame = new JFrame();
-        JOptionPane.showMessageDialog(jFrame, "Save_to_file noch nicht verfügbar");
+        JOptionPane.showMessageDialog(jFrame, "Save_to_file noch nicht verfï¿½gbar");
 	}
 	
 	
@@ -393,9 +396,9 @@ public class InputPanel extends JPanel
 	public void print() {
 		
 		log.info("Save to file und drucken ausgelï¿½st");
-		//HTMLPrinter.getInstance().print(jLScanMonitor.getText());	
-		JFrame jFrame = new JFrame();
-        JOptionPane.showMessageDialog(jFrame, "Print  noch nicht verfügbar");
+		HTMLPrinter.getInstance().print(racks.getHTML());	
+		//JFrame jFrame = new JFrame();
+        //JOptionPane.showMessageDialog(jFrame, "Print  noch nicht verfï¿½gbar");
 	
 	}
 

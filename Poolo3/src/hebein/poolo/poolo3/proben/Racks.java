@@ -5,8 +5,10 @@ import java.util.logging.Logger;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import hebein.poolo.poolo3.tree.PCRTree;
 /**
- * Hier werden sämtliche Racks angelegt
+ * Hier werden sï¿½mtliche Racks angelegt
  * @author GuntherBackoffice
  *
  */
@@ -18,6 +20,7 @@ public class Racks {
 	EinzelRack aktuellesRack;
 	int aktuellesRackNummer;
 	ProbenVerzeichnis probenverzeichnis;
+	PCRTree myPCRTree;
 	//konst
 		
 		
@@ -43,7 +46,13 @@ public class Racks {
 			
 		}
 		htmlText = "MAINRACK"+ htmlText;
-		return htmlText;
+		return "<html><head>\r\n"
+				+ "      <style>\r\n"
+				+ "         table, th, td {\r\n"
+				+ "            border: 1px solid black;\r\n"
+				+ "         }\r\n"
+				+ "      </style>\r\n"
+				+ "   </head><table><tr><th>RackID</th><th>LineId</th><th>Probe lfd Nr</th><th>Probe ID</th><th>Result</th><th>is valid</th></tr>"+htmlText+"</table></html>";
 	}
 		//SHOW 
 	public void showInfo()
@@ -58,11 +67,13 @@ public class Racks {
 		aktuellesRackNummer++;
 		aktuellesRack = new EinzelRack(aktuellesRackNummer);
 		rackList.add(aktuellesRack);
+		myPCRTree.addRack(Integer.toString(aktuellesRackNummer));
 		
 	}
 	
 	public void addLinie ()
 	{
+		aktuellesRack.setTree(myPCRTree);
 		aktuellesRack.addLinie();
 		
 	}
@@ -74,6 +85,7 @@ public class Racks {
 		if (probenverzeichnis.addProbe(inProbenNummer, einzelprobe)) //die Nummer existiert nich nicht
 		{
 			aktuellesRack.addprobe (einzelprobe);
+			myPCRTree.addProbe(inProbenNummer);
 			System.out.println (getHTML());
 			
 		}
@@ -83,6 +95,11 @@ public class Racks {
 			JFrame jFrame = new JFrame();
 	        JOptionPane.showMessageDialog(jFrame, "Probe schon existent!");
 		}
+		
+	}
+	public void setTree(PCRTree inMyPCRTree) {
+		// TODO Auto-generated method stub
+		myPCRTree =inMyPCRTree;
 		
 	}
 

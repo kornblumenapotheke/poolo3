@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import hebein.poolo.poolo3.tree.PCRTree;
+
 public class EinzelRack 
 {
 	//refs
@@ -16,6 +18,7 @@ public class EinzelRack
 	ArrayList<EinzelLinie> einzelLinien; 
 	EinzelLinie aktuelleEinzelLinie;
 	int nummerAktuelleEinzelLinie=-999;
+	PCRTree myPCRTree;
 	
 	//konst
 	
@@ -56,10 +59,10 @@ public class EinzelRack
 		for (int i=0;i<einzelLinien.size();i++)
 		{
 			EinzelLinie einzelLinie = einzelLinien.get(i);
-			htmlText = htmlText + " " + einzelLinie.getHTML();
+			htmlText = htmlText +  einzelLinie.getHTML();
 			
 		}
-		htmlText = "RACK: "+getNumberRack() +  htmlText;
+		htmlText = "<tr><td>RACK NUMMER "+getNumberRack()+"</td><td></td><td></td><td></td><td></td><td></td></tr>"+  htmlText;
 		return htmlText;
 	}
 	
@@ -82,6 +85,12 @@ public class EinzelRack
 	//ADD
 	
 	public void addLinie() {
+		
+		
+		nummerAktuelleEinzelLinie++;
+		aktuelleEinzelLinie = new EinzelLinie(nummerAktuelleEinzelLinie);
+		einzelLinien.add(aktuelleEinzelLinie);
+		myPCRTree.addLine(Integer.toString(aktuelleEinzelLinie.getLinienNummer()));
 		// TODO Auto-generated method stub
 		
 		
@@ -99,6 +108,12 @@ public class EinzelRack
 	{
 		EinzelRack er =new EinzelRack(0);
 		er.showInfo();
+	}
+
+	public void setTree(PCRTree inMyPCRTree) {
+		// TODO Auto-generated method stub
+		myPCRTree = inMyPCRTree;
+		
 	}
 
 }
