@@ -1,7 +1,11 @@
 package hebein.poolo.poolo3.proben;
+
+import java.util.logging.Logger;
+
 public class Racks {
 	
 	//refs
+	Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	
 		//konst
 		

@@ -8,7 +8,7 @@ public class Probenverzeichnis
 	//refs
 	
 	HashMap<String,EinzelProbe> myProbenverzeichnis;
-	 Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+	Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	
 	//konst
 	

@@ -1,6 +1,7 @@
 package hebein.poolo.poolo3.proben;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import hebein.poolo.poolo3.dispatcher.DispatcherService;
 
@@ -12,6 +13,7 @@ String myLinienNummer;
 ProbenStatus myBefund;
 EinzelRack myRack;
 DispatcherService myDispatcher;
+Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	EinzelLinie(String inLinienNummer)
 	{
