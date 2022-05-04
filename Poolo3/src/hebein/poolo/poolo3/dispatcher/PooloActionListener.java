@@ -73,7 +73,7 @@ public class PooloActionListener implements ActionListener {
 				if (objectName == "InputFrame_Save_Print")
 				{
 					InputPanel inputframe =  (InputPanel) objectList.get("InputFrame");
-					inputframe.save_to_file();
+					//inputframe.save_to_file();
 					inputframe.print();
 					
 				}

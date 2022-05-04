@@ -41,6 +41,31 @@ public class ProbenStatus {
 		return myStatus;
 	}
 	
+	public String getTextStatus()
+	{
+		switch (myStatus)
+		{
+		case -999:
+			return "INVALID";
+			
+		case -888:
+			return "INVALID";
+		case -100:
+			return "IN AUSWERTUNG";
+			
+		case 200:
+			return "NACHGEWIESEN";
+		case 100:
+			return "NICHT NACHGEWIESEN";
+		case 0:
+			return "KEINE BEFUNDUNG MÖGLICH";
+		case 300:
+			return "POSITIVER POOL";
+		}
+		
+		return "???";
+	}
+	
 	public String getAenderungen ()
 	{
 		return statusaenderungen.toString();

@@ -23,7 +23,7 @@ int aktuelleposition = -999;
 		myBefund.setStatus(myBefund.IST_IN_AUSWERTUNG);
 		myLinienNummer=inLinienNummer;
 		myLinienZeit = System.currentTimeMillis();
-		aktuelleposition = -1;
+		aktuelleposition = 0;
 		
 	
 	}

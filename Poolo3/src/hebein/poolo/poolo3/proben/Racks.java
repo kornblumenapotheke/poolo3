@@ -29,8 +29,8 @@ public class Racks {
 	{
 		rackList = new ArrayList<EinzelRack>();
 		aktuellesRackNummer = 0;
-		aktuellesRack = new EinzelRack(aktuellesRackNummer);
-		rackList.add(aktuellesRack);
+		//aktuellesRack = new EinzelRack(aktuellesRackNummer);
+		//rackList.add(aktuellesRack);
 		probenverzeichnis = new ProbenVerzeichnis ();
 	}
 		//SET

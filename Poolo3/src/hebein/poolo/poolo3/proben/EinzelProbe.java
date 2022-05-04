@@ -57,7 +57,7 @@ public class EinzelProbe
 //GET
 	public String getHTML ()
 	{
-		return "<tr><td></td><td></td><td>"+meinePosition+"</td><td>"+myProbenId+"</td><td>"+myStatus.getStatus()+"</td><td>"+isValid+"</td></tr>";
+		return "<tr><td></td><td></td><td>"+meinePosition+"</td><td>"+myProbenId+"</td><td>"+myStatus.getTextStatus()+"</td><td>"+isValid+"</td></tr>";
 	}
 	
 	public String getProbenID ()
