@@ -7,6 +7,9 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
+import hebein.poolo.poolo3.inputpanel.Settings;
+import hebein.poolo.poolo3.proben.ProbenStatus;
+
 public class MyTreeCellRenderer extends DefaultTreeCellRenderer {
 
     @Override
@@ -40,8 +43,47 @@ public class MyTreeCellRenderer extends DefaultTreeCellRenderer {
         
         if (node.contains("PROBE")) {
             // Paint the node in blue
-            setForeground(Color.BLACK);
-            setBackground (new Color(ThreadLocalRandom.current().nextInt(125, 256),ThreadLocalRandom.current().nextInt(125, 256),ThreadLocalRandom.current().nextInt(125, 256)));
+            
+            //hole probennummer
+            //hole einzelprobe
+            //hole status von einzelprobe
+            //farbe nach Settings auswählen
+            switch (ProbenStatus.IST_IN_AUSWERTUNG) //status
+            {
+            case ProbenStatus.INVALID:
+            	setForeground(Settings.foreground_einzelprobe_INVALID);
+            	setBackground (Settings.background_einzelprobe_INVALID);
+            	break;
+            case ProbenStatus.NOT_CONSTRUCTED: //kein Konstriuktor aufgerufen
+            	setForeground(Settings.foreground_einzelprobe_NOT_CONSTRUCTED);
+            	setBackground (Settings.background_einzelprobe_NOT_CONSTRUCTED);
+            	break;
+            case ProbenStatus.IST_IN_AUSWERTUNG:  //Wiord ausgewertet, keiner Ergebnis
+            	setForeground(Settings.foreground_einzelprobe_IST_IN_AUSWERTUNG);
+            	setBackground (Settings.background_einzelprobe_IST_IN_AUSWERTUNG);
+            	break;
+            case ProbenStatus.IST_POSITIV: //Ergebnis NACHGEWIESEN
+            	setForeground(Settings.foreground_einzelprobe_IST_POSITIV);
+            	setBackground (Settings.background_einzelprobe_IST_POSITIV);
+            	break;
+            case ProbenStatus.IST_NEGATIV:  //Ergebnis NICHTS NACHGEWIESEN
+            	setForeground(Settings.foreground_einzelprobe_IST_NEGATIV);
+            	setBackground (Settings.background_einzelprobe_IST_NEGATIV);
+            	break;
+            case ProbenStatus.IST_UNCLEAR:  //Ergebnis unklar, kein Befund
+            	setForeground(Settings.foreground_einzelprobe_IST_UNCLEAR);
+            	setBackground (Settings.background_einzelprobe_IST_UNCLEAR);
+            	break;
+            case ProbenStatus.IST_POSITIVE_POOL:
+            	setForeground(Settings.foreground_einzelprobe_IST_POSITIVE_POOL);
+            	setBackground (Settings.background_einzelprobe_IST_POSITIVE_POOL);
+            	break;
+            default:
+            	setForeground(Settings.foreground_einzelprobe_DEFAULT);
+            	setBackground (Settings.background_einzelprobe_DEFAULT);
+            	break;
+            }
+            
             setOpaque(true);
         }
 
