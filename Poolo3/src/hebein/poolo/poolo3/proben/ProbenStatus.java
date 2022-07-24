@@ -41,6 +41,25 @@ public class ProbenStatus {
 		return myStatus;
 	}
 	
+	public String getStatusText()
+	{
+		
+		
+		switch (myStatus)
+		{
+		case INVALID: return "INVALID";
+		case NOT_CONSTRUCTED: return "CONSTRUCTOR ERROR"; //kein Konstriuktor aufgerufen
+		case IST_IN_AUSWERTUNG: return "IN AUSWERTUNG"; //Wird ausgewertet, keiner Ergebnis
+		case IST_POSITIV: return "!!! NACHGEWIESEN"; //Ergebnis NACHGEWIESEN
+		case IST_NEGATIV: return "NICHT NACHGEWIESEN"; //Ergebnis NICHTS NACHGEWIESEN
+		case IST_UNCLEAR: return "NICHT BEFUNDBAR"; //Ergebnis unklar, kein Befund
+		case IST_POSITIVE_POOL: return "POSITIVER POOL"; //Ergebnis positiv, aber in einem Pool
+		default: return "ERROR";
+		}
+		
+		
+	}
+	
 	public String getAenderungen ()
 	{
 		return statusaenderungen.toString();
