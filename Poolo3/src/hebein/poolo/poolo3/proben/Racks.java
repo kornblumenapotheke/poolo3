@@ -106,8 +106,13 @@ public class Racks {
 		myPCRTree.addRack(Integer.toString(aktuellesRackNummer));
 		aktuellesRack.setTree(myPCRTree);
 		myPCRTree.addLine(Integer.toString(aktuellesRack.aktuelleEinzelLinie.getLinienNummer()));
+		//(myPCRTree.getCellRenderer()).setProbenVerzeichnis(probenverzeichnis);
 
 		
+	}
+	public ProbenVerzeichnis getProbenverzeichnis() {
+		// TODO Auto-generated method stub
+		return probenverzeichnis;
 	}
 
 }

@@ -68,7 +68,11 @@ public class EinzelProbe
 		// TODO Auto-generated method stub
 		return Integer.toString(meinePosition);
 	}
-	
+	public ProbenStatus getStatus ()
+	{
+		return myStatus;
+		
+	}
 
 //SHOWS
 	/**

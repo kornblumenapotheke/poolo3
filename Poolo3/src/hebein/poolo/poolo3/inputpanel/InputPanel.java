@@ -242,7 +242,9 @@ public class InputPanel extends JPanel
 		tree = new JTree(myPCRTree.getTreeRoot() );
 		myPCRTree.setTree(tree);
 		racks.setTree (myPCRTree);
-		tree.setCellRenderer(new MyTreeCellRenderer());
+		MyTreeCellRenderer myTreeCellRenderer = new MyTreeCellRenderer ();
+		myTreeCellRenderer.setProbenVerzeichnis(racks.getProbenverzeichnis());
+		tree.setCellRenderer(myTreeCellRenderer);
 		
 		
 		setScanLine();

@@ -8,10 +8,17 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
 import hebein.poolo.poolo3.inputpanel.Settings;
+import hebein.poolo.poolo3.proben.EinzelProbe;
 import hebein.poolo.poolo3.proben.ProbenStatus;
+import hebein.poolo.poolo3.proben.ProbenVerzeichnis;
 
 public class MyTreeCellRenderer extends DefaultTreeCellRenderer {
 
+	ProbenVerzeichnis probenverzeichnis;
+	public void setProbenVerzeichnis (ProbenVerzeichnis inProbenverzeichnis)
+	{
+		probenverzeichnis = inProbenverzeichnis;
+	}
     @Override
     public Component getTreeCellRendererComponent(JTree tree, Object value,
             boolean sel, boolean exp, boolean leaf, int row, boolean hasFocus) {
@@ -45,10 +52,14 @@ public class MyTreeCellRenderer extends DefaultTreeCellRenderer {
             // Paint the node in blue
             
             //hole probennummer
+        	String probennummer = node.substring(node.indexOf(": ")+2);
+        	System.out.println ("PROBENNUMMER CHECK IT: "+probennummer);
             //hole einzelprobe
+        	EinzelProbe einzelprobe = probenverzeichnis.getprobe(probennummer);
             //hole status von einzelprobe
+        	
             //farbe nach Settings auswählen
-            switch (ProbenStatus.IST_IN_AUSWERTUNG) //status
+            switch (einzelprobe.getStatus().getStatus()) //status
             {
             case ProbenStatus.INVALID:
             	setForeground(Settings.foreground_einzelprobe_INVALID);

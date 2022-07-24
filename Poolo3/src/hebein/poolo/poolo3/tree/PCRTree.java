@@ -72,4 +72,9 @@ public class PCRTree
 	{
 		myTree = inTree;
 	}
+
+	public Object getCellRenderer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
