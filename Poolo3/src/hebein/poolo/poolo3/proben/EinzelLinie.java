@@ -9,18 +9,21 @@ public class EinzelLinie
 {
 long myLinienZeit;
 ArrayList<EinzelProbe> proben;
-String myLinienNummer;
+int myLinienNummer;
 ProbenStatus myBefund;
 EinzelRack myRack;
 DispatcherService myDispatcher;
 Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+int aktuelleposition = -999;
 
-	EinzelLinie(String inLinienNummer)
+	EinzelLinie(int inLinienNummer)
 	{
 		proben =  new ArrayList<EinzelProbe>();
+		myBefund = new ProbenStatus();
 		myBefund.setStatus(myBefund.IST_IN_AUSWERTUNG);
 		myLinienNummer=inLinienNummer;
 		myLinienZeit = System.currentTimeMillis();
+		aktuelleposition = 0;
 		
 	
 	}
@@ -52,7 +55,7 @@ Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	{
 		return myBefund;
 	}
-	public String getLinienNummer ()
+	public int getLinienNummer ()
 
 	{
 		return myLinienNummer;
@@ -61,8 +64,16 @@ Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	
 	public String getHTML()
 	{
+		String htmlText ="";
 		//gibt den HTML der Linie und der darauf liegenden Proben retuour
-		return "HTML HIER VON LINIE REKURSIV";
+		for (int i=0;i<proben.size();i++)
+		{
+			EinzelProbe einzelprobe = proben.get(i);
+			htmlText = htmlText + einzelprobe.getHTML();
+			
+		}
+		htmlText = "<tr><td></td><td>"+"LINIE: "+getLinienNummer()+"</td><td></td><td></td><td></td><td></td></tr>" + htmlText;
+		return htmlText;
 	}
 	
 //SHOW
@@ -73,13 +84,14 @@ Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	}
 	
 //ADD
-	public EinzelProbe add(String inProbenID)
+	public void add(EinzelProbe einzelprobe)
 	{
-		EinzelProbe einzelprobe = new EinzelProbe(inProbenID);
 		einzelprobe.setLinie(this);
 		einzelprobe.setResult(new ProbenStatus().IST_IN_AUSWERTUNG); //Hier noch richtigenb Status setzen
 		einzelprobe.setDispatcher(myDispatcher);
+		aktuelleposition++;
+		einzelprobe.setPosition(aktuelleposition);
 		proben.add(einzelprobe);
-		return einzelprobe;
+		
 	}
 }

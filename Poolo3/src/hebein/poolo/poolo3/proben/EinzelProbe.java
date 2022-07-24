@@ -13,6 +13,7 @@ public class EinzelProbe
 	boolean isValid = false;
 	ProbenStatus myStatus = new ProbenStatus();
 	DispatcherService myDispatcher;
+	int meinePosition = -999;
 	Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	
@@ -22,6 +23,7 @@ public class EinzelProbe
 		myProbenZeit = System.currentTimeMillis();
 		myProbenId = inProbenID;
 		isValid = true;
+		meinePosition = -888;
 		
 	}
 
@@ -46,17 +48,25 @@ public class EinzelProbe
 	{
 		myDispatcher = inDispatcher;		
 	}
+	public void setPosition(int aktuelleposition) {
+		meinePosition = aktuelleposition;
+		
+	}
 	
 	
 //GET
 	public String getHTML ()
 	{
-		return "HTML HIER VON EINZELPROBE"; //Hier sollte eine geeignete Darstellung derProbe als HTMNL erstell werden.
+		return "<tr><td></td><td></td><td>"+meinePosition+"</td><td>"+myProbenId+"</td><td>"+myStatus.getStatus()+"</td><td>"+isValid+"</td></tr>";
 	}
 	
 	public String getProbenID ()
 	{
 		return myProbenId;
+	}
+	public String getPosition() {
+		// TODO Auto-generated method stub
+		return Integer.toString(meinePosition);
 	}
 	
 
@@ -68,6 +78,10 @@ public class EinzelProbe
 	{
 		//Zeigt mit einem JDialog Infos zur Linie her.
 	}
+
+	
+
+	
 	
 
 }

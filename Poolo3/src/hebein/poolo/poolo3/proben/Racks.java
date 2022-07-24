@@ -2,8 +2,13 @@ package hebein.poolo.poolo3.proben;
 
 import java.util.ArrayList;
 import java.util.logging.Logger;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+import hebein.poolo.poolo3.tree.PCRTree;
 /**
- * Hier werden sämtliche Racks angelegt
+ * Hier werden sï¿½mtliche Racks angelegt
  * @author GuntherBackoffice
  *
  */
@@ -15,20 +20,41 @@ public class Racks {
 	EinzelRack aktuellesRack;
 	int aktuellesRackNummer;
 	ProbenVerzeichnis probenverzeichnis;
-	//konst
+	PCRTree myPCRTree;
+	//kons)t
 		
 		
 	//KONSTRUKT
-	Racks ()
+	public Racks ()
 	{
 		rackList = new ArrayList<EinzelRack>();
-		aktuellesRackNummer = 0;
+		aktuellesRackNummer = 1;
 		aktuellesRack = new EinzelRack(aktuellesRackNummer);
 		rackList.add(aktuellesRack);
 		probenverzeichnis = new ProbenVerzeichnis ();
+		
 	}
 		//SET
 		//GET
+	public String getHTML()
+	{
+		String htmlText ="";
+		//gibt den HTML der Linie und der darauf liegenden Proben retuour
+		for (int i=0;i<rackList.size();i++)
+		{
+			EinzelRack einzelrack = rackList.get(i);
+			htmlText = htmlText + einzelrack.getHTML();
+			
+		}
+		htmlText = "MAINRACK"+ htmlText;
+		return "<html><head>\r\n"
+				+ "      <style>\r\n"
+				+ "         table, th, td {\r\n"
+				+ "            border: 1px solid black;\r\n"
+				+ "         }\r\n"
+				+ "      </style>\r\n"
+				+ "   </head><table><tr><th>RackID</th><th>LineId</th><th>Probe lfd Nr</th><th>Probe ID</th><th>Result</th><th>is valid</th></tr>"+htmlText+"</table></html>";
+	}
 		//SHOW 
 	public void showInfo()
 	{
@@ -42,11 +68,14 @@ public class Racks {
 		aktuellesRackNummer++;
 		aktuellesRack = new EinzelRack(aktuellesRackNummer);
 		rackList.add(aktuellesRack);
+		myPCRTree.addRack(Integer.toString(aktuellesRackNummer));
+		myPCRTree.addLine(Integer.toString(aktuellesRack.aktuelleEinzelLinie.getLinienNummer()));
 		
 	}
 	
 	public void addLinie ()
 	{
+		aktuellesRack.setTree(myPCRTree);
 		aktuellesRack.addLinie();
 		
 	}
@@ -54,7 +83,30 @@ public class Racks {
 	public void addProbe (String inProbenNummer)
 	{
 		//Checke Probenverzeichnis
-		aktuellesRack.addprobe (inProbenNummer);
+		EinzelProbe einzelprobe = new EinzelProbe (inProbenNummer);
+		if (probenverzeichnis.addProbe(inProbenNummer, einzelprobe)) //die Nummer existiert nich nicht
+		{
+			aktuellesRack.addprobe (einzelprobe);
+			myPCRTree.addProbe(einzelprobe.getPosition(), einzelprobe.getProbenID());
+			System.out.println (getHTML());
+			
+		}
+		else
+		{
+			//Fehlermeldung dass schon existent!
+			JFrame jFrame = new JFrame();
+	        JOptionPane.showMessageDialog(jFrame, "Probe schon existent!");
+		}
+		
+	}
+	public void setTree(PCRTree inMyPCRTree) {
+		// TODO Auto-generated method stub
+		myPCRTree =inMyPCRTree;
+		//damit von anfang an ein rack und eine linie angegeben ist.
+		myPCRTree.addRack(Integer.toString(aktuellesRackNummer));
+		aktuellesRack.setTree(myPCRTree);
+		myPCRTree.addLine(Integer.toString(aktuellesRack.aktuelleEinzelLinie.getLinienNummer()));
+
 		
 	}
 
