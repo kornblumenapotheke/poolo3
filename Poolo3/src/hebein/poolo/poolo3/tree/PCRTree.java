@@ -35,11 +35,11 @@ public class PCRTree
 		return myTreeRoot;
 	}
 
-	public void addProbe(String inString) 
+	public void addProbe(String inPosition, String inId) 
 	{
 		// TODO Auto-generated method stub
 		log.info ("Tree added");
-		actualLine.add(new DefaultMutableTreeNode("PROBE:"+ inString));
+		actualLine.add(new DefaultMutableTreeNode("PROBE "+inPosition+": "+ inId));
 		treeExpand();
 		
 	}

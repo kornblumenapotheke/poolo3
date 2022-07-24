@@ -263,6 +263,10 @@ public class InputPanel extends JPanel
 		PooloActionListener.getInstance().registerService("InputFrame", (Object)this);
 		
 		log.info("Konstruktor Inputframe Ende");
+		((DefaultTreeModel)tree.getModel()).reload();
+		JTreeUtil jTreeUtil = new JTreeUtil();
+		jTreeUtil.expandTree(tree, true);
+		textField.grabFocus();
 	}
 	
 	
@@ -368,7 +372,7 @@ public class InputPanel extends JPanel
 	 */
 	public void save_to_file()
 	{
-		log.info("Save to file ausgel�st");
+		log.info("Save to file ausgeloest");
 		//HTMLPrinter.getInstance().save_to_file(jLScanMonitor.getText());
 		
 		JFrame jFrame = new JFrame();
@@ -381,7 +385,7 @@ public class InputPanel extends JPanel
 	{
 		
 		JFrame frame = new JFrame();
-		frame.setTitle("Poolo 3 " + Settings.version);
+		frame.setTitle("Poolo III " + Settings.version +" "+Settings.copyright);
         frame.add(new InputPanel());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();

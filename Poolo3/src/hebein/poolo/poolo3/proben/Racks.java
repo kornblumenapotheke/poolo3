@@ -21,17 +21,18 @@ public class Racks {
 	int aktuellesRackNummer;
 	ProbenVerzeichnis probenverzeichnis;
 	PCRTree myPCRTree;
-	//konst
+	//kons)t
 		
 		
 	//KONSTRUKT
 	public Racks ()
 	{
 		rackList = new ArrayList<EinzelRack>();
-		aktuellesRackNummer = 0;
+		aktuellesRackNummer = 1;
 		aktuellesRack = new EinzelRack(aktuellesRackNummer);
 		rackList.add(aktuellesRack);
 		probenverzeichnis = new ProbenVerzeichnis ();
+		
 	}
 		//SET
 		//GET
@@ -68,6 +69,7 @@ public class Racks {
 		aktuellesRack = new EinzelRack(aktuellesRackNummer);
 		rackList.add(aktuellesRack);
 		myPCRTree.addRack(Integer.toString(aktuellesRackNummer));
+		myPCRTree.addLine(Integer.toString(aktuellesRack.aktuelleEinzelLinie.getLinienNummer()));
 		
 	}
 	
@@ -85,7 +87,7 @@ public class Racks {
 		if (probenverzeichnis.addProbe(inProbenNummer, einzelprobe)) //die Nummer existiert nich nicht
 		{
 			aktuellesRack.addprobe (einzelprobe);
-			myPCRTree.addProbe(inProbenNummer);
+			myPCRTree.addProbe(einzelprobe.getPosition(), einzelprobe.getProbenID());
 			System.out.println (getHTML());
 			
 		}
@@ -100,6 +102,11 @@ public class Racks {
 	public void setTree(PCRTree inMyPCRTree) {
 		// TODO Auto-generated method stub
 		myPCRTree =inMyPCRTree;
+		//damit von anfang an ein rack und eine linie angegeben ist.
+		myPCRTree.addRack(Integer.toString(aktuellesRackNummer));
+		aktuellesRack.setTree(myPCRTree);
+		myPCRTree.addLine(Integer.toString(aktuellesRack.aktuelleEinzelLinie.getLinienNummer()));
+
 		
 	}
 

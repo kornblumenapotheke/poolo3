@@ -28,7 +28,7 @@ public class EinzelRack
 	{
 		myRackNummer=inRackNummer;
 		einzelLinien = new ArrayList<EinzelLinie>();
-		nummerAktuelleEinzelLinie = 0;
+		nummerAktuelleEinzelLinie = 1;
 		aktuelleEinzelLinie = new EinzelLinie(nummerAktuelleEinzelLinie);
 		einzelLinien.add(aktuelleEinzelLinie);
 		
