@@ -69,7 +69,7 @@ public class Racks {
 		aktuellesRack = new EinzelRack(aktuellesRackNummer);
 		rackList.add(aktuellesRack);
 		myPCRTree.addRack(Integer.toString(aktuellesRackNummer));
-		myPCRTree.addLine(Integer.toString(aktuellesRack.aktuelleEinzelLinie.getLinienNummer()));
+		myPCRTree.addLine(Character.toString((char)(aktuellesRack.aktuelleEinzelLinie.getLinienNummer()+64)));
 		
 	}
 	
@@ -105,7 +105,7 @@ public class Racks {
 		//damit von anfang an ein rack und eine linie angegeben ist.
 		myPCRTree.addRack(Integer.toString(aktuellesRackNummer));
 		aktuellesRack.setTree(myPCRTree);
-		myPCRTree.addLine(Integer.toString(aktuellesRack.aktuelleEinzelLinie.getLinienNummer()));
+		myPCRTree.addLine((Character.toString((char)(aktuellesRack.aktuelleEinzelLinie.getLinienNummer()+64))));
 		//(myPCRTree.getCellRenderer()).setProbenVerzeichnis(probenverzeichnis);
 
 		

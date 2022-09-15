@@ -90,7 +90,7 @@ public class EinzelRack
 		nummerAktuelleEinzelLinie++;
 		aktuelleEinzelLinie = new EinzelLinie(nummerAktuelleEinzelLinie);
 		einzelLinien.add(aktuelleEinzelLinie);
-		myPCRTree.addLine(Integer.toString(aktuelleEinzelLinie.getLinienNummer()));
+		myPCRTree.addLine(Character.toString((char)(aktuelleEinzelLinie.getLinienNummer()+64)));
 		// TODO Auto-generated method stub
 		
 		
