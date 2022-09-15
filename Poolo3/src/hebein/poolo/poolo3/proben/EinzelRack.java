@@ -62,7 +62,7 @@ public class EinzelRack
 			htmlText = htmlText +  einzelLinie.getHTML();
 			
 		}
-		htmlText = "<tr><td>RACK NUMMER "+getNumberRack()+"</td><td></td><td></td><td></td><td></td><td></td></tr>"+  htmlText;
+		htmlText = "<tr bgcolor=\"#ddd\"><td>RACK NUMMER "+getNumberRack()+"</td><td></td><td></td><td></td><td></td><td></td></tr>"+  htmlText;
 		return htmlText;
 	}
 	
