@@ -94,4 +94,9 @@ int aktuelleposition = -999;
 		proben.add(einzelprobe);
 		
 	}
+	public int getAktuelleProbe() {
+		// TODO Auto-generated method stub
+		return aktuelleposition;
+		//return 999;
+	}
 }

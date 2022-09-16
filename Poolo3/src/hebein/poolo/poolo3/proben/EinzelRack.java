@@ -116,4 +116,9 @@ public class EinzelRack
 		
 	}
 
+	public EinzelLinie getAktuelleLine() {
+		return aktuelleEinzelLinie;
+		
+	}
+
 }

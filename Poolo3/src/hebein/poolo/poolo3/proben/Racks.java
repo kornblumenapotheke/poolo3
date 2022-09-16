@@ -114,5 +114,22 @@ public class Racks {
 		// TODO Auto-generated method stub
 		return probenverzeichnis;
 	}
+	
+	public String getActualLine() {
+		// TODO Auto-generated method stub
+		return Character.toString(((aktuellesRack.getAktuelleLine()).getLinienNummer()+64));
+	}
+	public String getActualRackNumber() {
+		// TODO Auto-generated method stub
+		return Integer.toString(aktuellesRackNummer);
+	}
+	public String getActualLinie() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public EinzelRack getActualRack() {
+		// TODO Auto-generated method stub
+		return aktuellesRack;
+	}
 
 }

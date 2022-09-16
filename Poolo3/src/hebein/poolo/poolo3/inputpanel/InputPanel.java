@@ -71,8 +71,9 @@ public class InputPanel extends JPanel
     private final Border rightPanel2_LineBorder = BorderFactory.createLineBorder(Color.BLACK, 1);
     private JTree tree;
     private PCRTree myPCRTree;    
-    private JLabel jlabel_rack = new JLabel ("R?");
-    private JLabel jlabel_line = new JLabel ("L?");
+    private JLabel jlabel_rack = new JLabel ("1");
+    private JLabel jlabel_line = new JLabel ("A");
+    private JLabel jlabel_probe = new JLabel ("1?");
     
     
     GridBagConstraints gbc = new GridBagConstraints();
@@ -215,7 +216,7 @@ public class InputPanel extends JPanel
 		
 		gbc.gridx = 0;
         gbc.gridy = 7;
-        JLabel jlabel_rack = new JLabel ("R?");
+        jlabel_rack = new JLabel ("1");
         //jlabel_rack.setOpaque(true);
         jlabel_rack.setBackground(Color.white);
         jlabel_rack.setFont(new Font("Calibri", Font.BOLD, 90));
@@ -223,7 +224,7 @@ public class InputPanel extends JPanel
         
         gbc.gridx = 1;
         gbc.gridy = 7;
-        JLabel jlabel_line = new JLabel ("L?");
+         jlabel_line = new JLabel ("A");
         jlabel_line.setBackground(Color.white);
         jlabel_line.setFont(new Font("Calibri", Font.BOLD, 90));
 		
@@ -231,7 +232,7 @@ public class InputPanel extends JPanel
 		
 		 gbc.gridx = 2;
 	     gbc.gridy = 7;
-	     JLabel jlabel_probe = new JLabel ("P?");
+	     jlabel_probe = new JLabel ("1");
 	     jlabel_probe.setBackground(Color.white);
 	     jlabel_probe.setFont(new Font("Calibri", Font.BOLD, 90));
 			
@@ -340,6 +341,7 @@ public class InputPanel extends JPanel
 		//checke ob diese Probe nicht schon existiert (Hash).
 		
 		racks.addProbe(inString);
+		set_label_probe(Integer.toString((racks.getActualRack()).getAktuelleLine().getAktuelleProbe()));
 		
 		
 		//Probenobjekt anlegen mit allen Referenzen!
@@ -363,6 +365,7 @@ public class InputPanel extends JPanel
 	{
 		log.info("Neuen rack anlegen");		
 		racks.addRack();
+		set_label_rack(racks.getActualRackNumber());
 		//actualRackNumber++;
 		//actualRowNumber ='A';
 		//actualRowNumber--;
@@ -386,6 +389,7 @@ public class InputPanel extends JPanel
 	{
 		log.info("Neue Row anlegen");		
 		racks.addLinie();
+		set_label_line(racks.getActualLine()); //update von Label mit aktueler Liniennummer
 		//neue Row anlegen
 		//text ausgeben
 		//actualRowNumber++;
@@ -441,6 +445,27 @@ public class InputPanel extends JPanel
 	
 	}
 
+	public void set_label_rack (String inString)
+	{
+		jlabel_rack.setText(inString);
+		textField.grabFocus();
+		
+	}
 	
+	public void set_label_line (String inString)
+	{
+		jlabel_line.setText(inString);	
+		//super.update(this.getGraphics());
+		textField.grabFocus();
+		
+	}
+	
+	public void set_label_probe (String inString)
+	{
+		jlabel_probe.setText(inString);
+		//jlabel_probe.setText("A");
+		textField.grabFocus();
+		
+	}
 	
 }
