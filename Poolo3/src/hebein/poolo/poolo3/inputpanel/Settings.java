@@ -4,7 +4,7 @@ import java.awt.Color;
 
 public class Settings {
 
-	public static final String version = "0.99.02 // 15.09.2022";
+	public static final String version = "0.99.03 // 16.09.2022";
 	public static final String copyright = "(C) Gunther Hebein 2022";
 	public static final Color foreground_einzelprobe_INVALID = Color.red;
 	public static final Color background_einzelprobe_INVALID = Color.black;

@@ -377,8 +377,8 @@ public class InputPanel extends JPanel
 		log.info("Save to file ausgeloest");
 		//HTMLPrinter.getInstance().save_to_file(jLScanMonitor.getText());
 		
-		JFrame jFrame = new JFrame();
-        JOptionPane.showMessageDialog(jFrame, "Save_to_file noch nicht verfuegbar");
+		//JFrame jFrame = new JFrame();
+        //JOptionPane.showMessageDialog(jFrame, "Save_to_file noch nicht verfuegbar");
 	}
 	
 	
@@ -387,7 +387,7 @@ public class InputPanel extends JPanel
 	{
 		
 		JFrame frame = new JFrame();
-		frame.setTitle("Poolo III " + Settings.version +" "+Settings.copyright);
+		frame.setTitle("Poolo" + Settings.version +" "+Settings.copyright);
         frame.add(new InputPanel());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
