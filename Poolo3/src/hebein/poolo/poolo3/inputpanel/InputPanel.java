@@ -387,7 +387,7 @@ public class InputPanel extends JPanel
 	{
 		
 		JFrame frame = new JFrame();
-		frame.setTitle("Poolo III " + Settings.version +" "+Settings.copyright);
+		frame.setTitle("Poolo " + Settings.version +" "+Settings.copyright);
         frame.add(new InputPanel());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
