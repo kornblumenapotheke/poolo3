@@ -161,7 +161,7 @@ public class InputPanel extends JPanel
 		gbc.anchor = GridBagConstraints.PAGE_START;
         gbc.gridx = 0;
         gbc.gridy = 1;
-        JButton button2 = new JButton ("New Row");
+        JButton button2 = new JButton ("New Line");
 		button2.setName("InputFrame_newRow");
 		button2.addActionListener(PooloActionListener.getInstance());
 		rightPanel_1.add(button2, gbc);        
@@ -242,7 +242,9 @@ public class InputPanel extends JPanel
 		tree = new JTree(myPCRTree.getTreeRoot() );
 		myPCRTree.setTree(tree);
 		racks.setTree (myPCRTree);
-		tree.setCellRenderer(new MyTreeCellRenderer());
+		MyTreeCellRenderer myTreeCellRenderer = new MyTreeCellRenderer ();
+		myTreeCellRenderer.setProbenVerzeichnis(racks.getProbenverzeichnis());
+		tree.setCellRenderer(myTreeCellRenderer);
 		
 		
 		setScanLine();

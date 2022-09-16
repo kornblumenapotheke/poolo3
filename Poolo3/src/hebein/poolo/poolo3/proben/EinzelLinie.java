@@ -72,7 +72,7 @@ int aktuelleposition = -999;
 			htmlText = htmlText + einzelprobe.getHTML();
 			
 		}
-		htmlText = "<tr><td></td><td>"+"LINIE: "+getLinienNummer()+"</td><td></td><td></td><td></td><td></td></tr>" + htmlText;
+		htmlText = "<tr bgcolor=\"#eee\"><td></td><td>"+"LINIE: "+(char)(64+getLinienNummer())+"</td><td></td><td></td><td></td><td></td></tr>" + htmlText;
 		return htmlText;
 	}
 	

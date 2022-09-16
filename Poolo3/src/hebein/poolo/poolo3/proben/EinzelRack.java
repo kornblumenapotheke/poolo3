@@ -62,7 +62,7 @@ public class EinzelRack
 			htmlText = htmlText +  einzelLinie.getHTML();
 			
 		}
-		htmlText = "<tr><td>RACK NUMMER "+getNumberRack()+"</td><td></td><td></td><td></td><td></td><td></td></tr>"+  htmlText;
+		htmlText = "<tr bgcolor=\"#ddd\"><td>RACK NUMMER "+getNumberRack()+"</td><td></td><td></td><td></td><td></td><td></td></tr>"+  htmlText;
 		return htmlText;
 	}
 	
@@ -90,7 +90,7 @@ public class EinzelRack
 		nummerAktuelleEinzelLinie++;
 		aktuelleEinzelLinie = new EinzelLinie(nummerAktuelleEinzelLinie);
 		einzelLinien.add(aktuelleEinzelLinie);
-		myPCRTree.addLine(Integer.toString(aktuelleEinzelLinie.getLinienNummer()));
+		myPCRTree.addLine(Character.toString((char)(aktuelleEinzelLinie.getLinienNummer()+64)));
 		// TODO Auto-generated method stub
 		
 		
