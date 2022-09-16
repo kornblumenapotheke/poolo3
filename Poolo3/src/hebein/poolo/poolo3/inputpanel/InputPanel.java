@@ -3,6 +3,7 @@ package hebein.poolo.poolo3.inputpanel;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
@@ -12,6 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -69,6 +71,9 @@ public class InputPanel extends JPanel
     private final Border rightPanel2_LineBorder = BorderFactory.createLineBorder(Color.BLACK, 1);
     private JTree tree;
     private PCRTree myPCRTree;    
+    private JLabel jlabel_rack = new JLabel ("R?");
+    private JLabel jlabel_line = new JLabel ("L?");
+    
     
     GridBagConstraints gbc = new GridBagConstraints();
     
@@ -104,6 +109,7 @@ public class InputPanel extends JPanel
         gbc.weighty=2.0;
         textField.setPreferredSize(new Dimension (250,30));
         this.add(textField, gbc);
+        
 		
     }
     
@@ -205,7 +211,31 @@ public class InputPanel extends JPanel
 		button9.setName("InputFrame_Group_binary");
 		button9.setBackground(Color.white);
 		button9.addActionListener(PooloActionListener.getInstance());
-		rightPanel_1.add(button9,gbc);        
+		rightPanel_1.add(button9,gbc);  
+		
+		gbc.gridx = 0;
+        gbc.gridy = 7;
+        JLabel jlabel_rack = new JLabel ("R?");
+        //jlabel_rack.setOpaque(true);
+        jlabel_rack.setBackground(Color.white);
+        jlabel_rack.setFont(new Font("Calibri", Font.BOLD, 90));
+        rightPanel_1.add(jlabel_rack,gbc);
+        
+        gbc.gridx = 1;
+        gbc.gridy = 7;
+        JLabel jlabel_line = new JLabel ("L?");
+        jlabel_line.setBackground(Color.white);
+        jlabel_line.setFont(new Font("Calibri", Font.BOLD, 90));
+		
+		rightPanel_1.add(jlabel_line,gbc);
+		
+		 gbc.gridx = 2;
+	     gbc.gridy = 7;
+	     JLabel jlabel_probe = new JLabel ("P?");
+	     jlabel_probe.setBackground(Color.white);
+	     jlabel_probe.setFont(new Font("Calibri", Font.BOLD, 90));
+			
+		 rightPanel_1.add(jlabel_probe,gbc);  
     }
     
 
@@ -257,6 +287,7 @@ public class InputPanel extends JPanel
         constructRightPanel_2_Components();
 
 	    setRightPanelBorders();
+	    
 	    
 		
 		
@@ -392,6 +423,7 @@ public class InputPanel extends JPanel
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        
 		
 		
 		
