@@ -163,7 +163,7 @@ public class InputPanel extends JPanel
 		button1.setName("InputFrame_newRack");
 		button1.addActionListener(PooloActionListener.getInstance());
 		rightPanel_1.add(button1, gbc);        
-		
+		button1.setEnabled(Settings.enabled_button_1);
 		
 		gbc.anchor = GridBagConstraints.PAGE_START;
         gbc.gridx = 0;
@@ -172,7 +172,7 @@ public class InputPanel extends JPanel
 		button2.setName("InputFrame_newRow");
 		button2.addActionListener(PooloActionListener.getInstance());
 		rightPanel_1.add(button2, gbc);        
-        
+		button2.setEnabled(Settings.enabled_button_2);
 		
 		gbc.gridx = 0;
         gbc.gridy = 2;                
@@ -181,6 +181,7 @@ public class InputPanel extends JPanel
 		button5.setBackground(Color.yellow);
 		button5.addActionListener(PooloActionListener.getInstance());
 		rightPanel_1.add(button5,gbc);
+		button5.setEnabled(Settings.enabled_button_5);
 		
 		gbc.gridx = 0;
         gbc.gridy = 3;
@@ -189,6 +190,7 @@ public class InputPanel extends JPanel
 		button6.setBackground(Color.yellow);
 		button6.addActionListener(PooloActionListener.getInstance());
 		rightPanel_1.add(button6,gbc);
+		button6.setEnabled(Settings.enabled_button_6);
 		
 		gbc.gridx = 0;
         gbc.gridy = 4;
@@ -197,6 +199,7 @@ public class InputPanel extends JPanel
 		button7.setBackground(Color.white);
 		button7.addActionListener(PooloActionListener.getInstance());
 		rightPanel_1.add(button7,gbc);
+		button7.setEnabled(Settings.enabled_button_7);
 		
 		gbc.gridx = 0;
         gbc.gridy = 5;
@@ -205,6 +208,7 @@ public class InputPanel extends JPanel
 		button8.setBackground(Color.white);
 		button8.addActionListener(PooloActionListener.getInstance());
 		rightPanel_1.add(button8,gbc);
+		button8.setEnabled(Settings.enabled_button_8);
 		
 		gbc.gridx = 0;
         gbc.gridy = 6;
@@ -213,28 +217,28 @@ public class InputPanel extends JPanel
 		button9.setBackground(Color.white);
 		button9.addActionListener(PooloActionListener.getInstance());
 		rightPanel_1.add(button9,gbc);  
+		button9.setEnabled(Settings.enabled_button_9);
 		
 		gbc.gridx = 0;
         gbc.gridy = 7;
         jlabel_rack = new JLabel ("1");
         //jlabel_rack.setOpaque(true);
-        jlabel_rack.setBackground(Color.white);
-        jlabel_rack.setFont(new Font("Calibri", Font.BOLD, 90));
+        jlabel_rack.setBackground(Settings.jlabel_rack_background);
+        jlabel_rack.setFont(Settings.jlabel_rack_font);
         rightPanel_1.add(jlabel_rack,gbc);
         
         gbc.gridx = 1;
         gbc.gridy = 7;
          jlabel_line = new JLabel ("A");
-        jlabel_line.setBackground(Color.white);
-        jlabel_line.setFont(new Font("Calibri", Font.BOLD, 90));
-		
+         jlabel_line.setBackground(Settings.jlabel_line_background);
+         jlabel_line.setFont(Settings.jlabel_line_font);
 		rightPanel_1.add(jlabel_line,gbc);
 		
 		 gbc.gridx = 2;
 	     gbc.gridy = 7;
 	     jlabel_probe = new JLabel ("1");
-	     jlabel_probe.setBackground(Color.white);
-	     jlabel_probe.setFont(new Font("Calibri", Font.BOLD, 90));
+	     jlabel_probe.setBackground(Settings.jlabel_probe_background);
+	     jlabel_probe.setFont(Settings.jlabel_probe_font);
 			
 		 rightPanel_1.add(jlabel_probe,gbc);  
     }
