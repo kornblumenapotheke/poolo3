@@ -268,7 +268,7 @@ public class InputPanel extends JPanel
 //Konstruktor
 	InputPanel ()
 	{
-		
+		textField.grabFocus();
 		log.info("Konstruktor Inputframe Beginn");
 		//actualRackNumber--;
 		//actualRowNumber--;
@@ -293,7 +293,7 @@ public class InputPanel extends JPanel
 
 	    setRightPanelBorders();
 	    
-	    
+	    textField.grabFocus();
 		
 		
 		
@@ -318,6 +318,7 @@ public class InputPanel extends JPanel
 		textField.setName("EANScan");
 		textField.setFocusable(true);
 		textField.setSize(250, 30);
+		textField.grabFocus();
 	
 	}
 	
@@ -426,12 +427,13 @@ public class InputPanel extends JPanel
 	{
 		
 		JFrame frame = new JFrame();
+		InputPanel inputpanel = new InputPanel();
 		frame.setTitle("Poolo " + Settings.version +" "+Settings.copyright);
-        frame.add(new InputPanel());
+        frame.add(inputpanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        
+        inputpanel.textField.grabFocus(); // Hier grab aktiv!
 		
 		
 		

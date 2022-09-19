@@ -5,7 +5,7 @@ import java.awt.Font;
 
 public class Settings {
 
-	public static final String version = "0.99.03 // 15.09.2022";
+	public static final String version = "0.99.04 // 19.09.2022";
 	public static final String copyright = "(C) Gunther Hebein 2022";
 	
 	public static final Color foreground_einzelprobe_INVALID = Color.red;
